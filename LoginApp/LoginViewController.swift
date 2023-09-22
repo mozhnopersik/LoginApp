@@ -17,7 +17,8 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstSegue" {
-            if let welcomeViewController = segue.destination as? WelcomeViewController {
+            if let welcomeViewController = segue.destination 
+                as? WelcomeViewController {
                 if let text = userNameTF.text {
                     welcomeViewController.textToLabel = text
                 }
@@ -43,7 +44,8 @@ class LoginViewController: UIViewController {
         if userNameTF.text == "User" && passwordTF.text == "Password" {
             performSegue(withIdentifier: "firstSegue", sender: nil)
         } else {
-            showAlert(title: "Invalid login or password", message: "Please, enter correct login and password")
+            showAlert(title: "Invalid login or password", 
+                      message: "Please, enter correct login and password")
             passwordTF.text = ""
         }
     }
@@ -57,8 +59,12 @@ class LoginViewController: UIViewController {
     // MARK: - Private Methods
     
     private func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alertController = UIAlertController(title: title, 
+                                                message: message,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", 
+                                                style: .default,
+                                                handler: nil))
         present(alertController, animated: true, completion: nil)
     }
 }
