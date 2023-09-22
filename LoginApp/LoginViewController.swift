@@ -9,19 +9,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBOutlet weak var userNameTF: UITextField!
-    
+
     @IBOutlet weak var passwordTF: UITextField!
     
-    
     @IBAction func logInButtonPressed(_ sender: UIButton) {
-        // Проверяем, что содержимое первого текстового поля равно "User" и второго - "Password"
         if userNameTF.text == "User" && passwordTF.text == "Password" {
-            // Если условия выполняются, выполняем переход на следующий контроллер
             performSegue(withIdentifier: "firstSegue", sender: nil)
         } else {
             showAlert(title: "Invalid login or password", message: "Please, enter correct login and password")
@@ -56,5 +49,11 @@ class LoginViewController: UIViewController {
         userNameTF.text = ""
         passwordTF.text = ""
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
 }
 
