@@ -9,14 +9,20 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
+    // MARK: - Public Properties
+    
+    var textToLabel = ""
+    
+    // MARK: - Life Cycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         welcomeLabel.text = "Welcome, \(textToLabel)"
     }
-    
-    @IBOutlet weak var welcomeLabel: UILabel!
-    
-    var textToLabel = ""
 }
 
 
